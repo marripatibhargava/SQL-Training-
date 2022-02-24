@@ -1,0 +1,58 @@
+#World Database
+
+# Select Statment
+
+Select 'Hello World' As Result;
+Select * From Country;
+Select * From Country Order By Name;
+Select Name, LifeExpectancy From Country Order by Name;
+Select Name, LifeExpectancy As "Life Expectancy" From Country Order by Name;
+
+#Selecting Rows
+
+Select Name, Continent, Region From Country;
+Select Name, Continent, Region From Country Where Continent = 'Europe';
+Select Name, Continent, Region From Country Where Continent = 'Europe' Order by Name;
+Select Name, Continent, Region From Country Where Continent = 'Europe' Order by Name Limit 5;
+Select Name, Continent, Region From Country Where Continent = 'Europe' Order by Name Limit 5 Offset 5;
+
+#Selecting Column
+
+Select * From COuntry;
+Select Name, Continent, Region From Country;
+Select Name As Country, Continent, Region From Country;
+Select Continent, Name As Country, Region From Country;
+
+#Counting Rows
+
+Select Count(*) From Country;
+Select Count(*) From Country Where Population > 1000000;
+Select Count(*) From Country Where Population > 1000000 And Continent = 'Europe';
+Select Count(LifeExpectancy) From Country; 
+
+#Test DB
+
+#Inserting Data
+
+Select * From customer;
+
+Insert Into customer (name, address, city, state, zip)
+Values ('Fred Flinstone', '123 Cobblestone Way', 'Bedrock','CA', '91234'); 
+
+Insert Into customer (name, city, state)
+Values ('Jimi Hendrix', 'Renton', 'WA');
+
+#Updating Data
+
+Select * From customer;
+Update customer Set address = '123 Music Avenue', zip = '98056' Where id = 4;
+Update customer Set address = '256 Somewhere Avenue', zip = '98098' Where id = 5;
+Update customer Set address = 'Null', zip = 'Null' Where id = 6;
+
+#Deleting Data
+
+Delete From customer where id = 5;
+
+#Creating Tables
+
+
