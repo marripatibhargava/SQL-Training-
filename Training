@@ -55,4 +55,62 @@ Delete From customer where id = 5;
 
 #Creating Tables
 
+Create Table test (
+  a Integer,
+  b Text
+);
 
+Insert Into test Values ( 1, 'a');
+Insert Into test Values ( 2, 'b');
+Insert Into test Values ( 3, 'c');
+Select * From test;
+
+# to Delete the Table
+Drop Table test;
+Drop Table If Exists test;
+
+# Creating Tables - More Ways
+
+Create Table test (a Interger, b Text, c Text);
+Insert Into test Values (1, 'This', 'Right Here!');
+Insert Into test (b,c) Values ('That', 'Over there!');
+Insert Into test Default Values;
+Insert Into test (a,b,c) Select id, name, description from item;
+Select * From test;
+
+#To select Null Object
+Select * From test Where a Is Null;
+Delete From test Where a Is Null;
+
+#To insert tables without Null
+
+Create Table test (
+  a Integer Not Null,
+  b Text Not Null,
+  c Text Not Null
+);
+
+#Constraint
+Unique = Will create only unique varialbles
+Not Null = Will not aloow Null values
+Text Default 'Something' = Will create something if values are not given 
+
+#Alter table - Adds or subtracts 
+Alter Table test Add e Text Default 'panda';
+
+#to create id tables (only valid for sqllite) 
+Create Table test (
+  id Interger Primary Key,
+  a Integer,
+  b Text
+);
+
+#Filtering Data
+Select Name, Continent, Population From Country
+  Where Population < 100000 Or Population is Null Order By Population Desc;
+  Where Population < 100000 and Continent is Oceania Order By Population Desc;
+  Where Name Like '%island%' Order by Name;
+  Where Name Like '_a%' Order by Name;
+  Where Continent In ('Europe', 'Asia') Order By Name;
+
+#Remove Dublicates
